@@ -1,5 +1,5 @@
-
-
+from random import randint
+from datetime import datetime
 class Product:
     def __init__(self, prod_id: int, prod_name: str, prod_price: int, prod_desc: str)-> None:
         self.id = prod_id
@@ -50,31 +50,68 @@ class Cart:
             idata["itemtotal"] = itemtotal
             carttotal += itemtotal
             
+    def saveReceipt(self):
+        ...
 
-    def checkout(self):
-        print("{:<5}{:<8}{:<6}{:<10}{:<10}{:<20}".format("Id", "Name", "Price", "Quantity", "Total", "Desc"))
-        self.checkout_receipt = {}
+    def checkout(self) -> list:
+        """
+        Docstring for checkout
+        
+        :param self: instance attribute
+        :return: list of all statement in the receipt 
+        :return type: list
+        """
+        # list to strore all Statement.
+        msgs = []
+        
+        # total salary .
+        total_salary_of_receive = 0
+
+        # generate random number to serial.
+        random_number = randint(0, 100000000)
+
+        # get the date.
+        date = datetime.now().strftime("%A, %d-%B-%Y")
+        
+        # get the time.
+        time = datetime.now().strftime("%I:%M:%S %p")
+
+        # add separator. 
+        msgs.append(f"-" * 60)
+
+        # append the basic information about the receipt.
+        msgs.append(f"Super Market Receipt\nSerial Number: {random_number}\nDate: {date}\nTime: {time}")
+        
+        # add separator. 
+        msgs.append(f"-" * 60)
+
+        # Add the header of the table. 
+        msgs.append("{:<5}{:<8}{:<6}{:<10}{:<10}{:<20}".format("Id", "Name", "Price", "Quantity", "Total", "Desc"))
+
 
         for id in self.items:
-            name = self.items[id]["obj"].prod_name
-            price = self.items[id]["obj"].prod_price
+            # get the data from the list:
+            name = self.items[id]["obj"].name
+            price = self.items[id]["obj"].price
             quantity = self.items[id]["quantity"]
-            total_salary = self.items[id]["quantity"] * self.items[id]["obj"].prod_price
-            desc = self.items[id]["obj"].prod_desc
+            total_salary = (self.items[id]["quantity"]) * (self.items[id]["obj"].price)
+            desc = self.items[id]["obj"].desc
 
-            self.checkout_receipt[id] = {
-                "name" : name,
-                "price" : price,
-                "Quantity": quantity,
-                "Total" : total_salary,
-                "desc": desc
-            }
+            # sum the total of every item.
+            total_salary_of_receive += total_salary
+            
+            # append every row in the receipt.
+            msgs.append(f"{id:<5}{name:<8}{str(price)+"$":<6}{quantity:<10}{total_salary:<10}{desc:<20}")
+        
+        # add separator.
+        msgs.append(f"-" * 60)
+        
+        # add the final total of receipt.
+        msgs.append("{:<29}{}".format("Final Total", total_salary_of_receive))
+        
+        # return the data.
+        return msgs 
 
-            msg = f"""{id:<5}{name:<8}{str(price)+"$":<6}{quantity:<10}{total_salary:<10}{desc:<20}"""
-            print(msg)
-        #return reciept info
-        #create reciept
-        ...
 
 LISTOFPRODUCTS = [
     Product(101, "Milk", 300, "1L of milk."),
@@ -83,12 +120,4 @@ LISTOFPRODUCTS = [
     Product(104, "Butter", 500, "Butter stick."),
     Product(106, "Soap", 199, "Hand soap.")
 ]
-
-my_cart = Cart()
-my_cart.addProduct(LISTOFPRODUCTS[0], 50)
-my_cart.addProduct(LISTOFPRODUCTS[1], 20)
-my_cart.addProduct(LISTOFPRODUCTS[2], 30)
-my_cart.checkout()
-
-
 
