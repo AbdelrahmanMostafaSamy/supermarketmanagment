@@ -3,17 +3,18 @@
 class Product:
     def __init__(self, prod_id: int, prod_name: str, prod_price: int, prod_desc: str)-> None:
         self.id = prod_id
-        self.prod_name = prod_name
-        self.prod_price = prod_price
-        self.prod_desc = prod_desc
+        self.name = prod_name
+        self.price = prod_price
+        self.desc = prod_desc
 
 
 
 class Cart:
     def __init__(self):
     #     id : {
-    #         obj : object,
-    #         Quantity : int
+    #         obj        : object,
+    #         quantity   : int
+    #         itemtotal  : int
     #     }
         self.items = {}
         self.total = 0
@@ -26,7 +27,7 @@ class Cart:
             self.items[prod.id]['quantity'] += 1
 
         else:
-            self.items[prod.id] = {'obj': prod, "quantity": quantity}
+            self.items[prod.id] = {'obj': prod, "quantity": quantity, "itemtotal": 0}
 
         self.update_total()
 
@@ -41,7 +42,14 @@ class Cart:
         self.update_total()
 
     def update_total(self):
-        ...
+        carttotal = 0
+
+        for iid, idata in self.items.items():
+            itemtotal = idata['obj'].price * idata['quantity']
+
+            idata["itemtotal"] = itemtotal
+            carttotal += itemtotal
+            
 
     def checkout(self):
         print("{:<5}{:<8}{:<6}{:<10}{:<10}{:<20}".format("Id", "Name", "Price", "Quantity", "Total", "Desc"))
