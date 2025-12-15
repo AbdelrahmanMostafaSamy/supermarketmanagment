@@ -107,11 +107,11 @@ class Cart:
         total_salary_of_receive = 0
 
         # generate random number to serial.
-        self.serial_number = randint(0, 100000000) 
+        self.serial_number = randint(10000000, 99999999) 
 
         # still generate numbers until find a new serial number.
         while not self.__is_Serial_available():
-            self.serial_number = randint(0, 100000000)
+            self.serial_number = randint(10000000, 99999999)
 
         # get the date.
         date = datetime.now().strftime("%A, %d-%B-%Y")
