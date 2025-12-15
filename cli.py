@@ -43,7 +43,7 @@ while True:
         })
         print("product added to cart")
     else :
-        print("Product not found")
+        print("Product not foun")
     
     cheskout = input("Do you want to checkout? (y/n): ")
     if cheskout.lower() == "y":
