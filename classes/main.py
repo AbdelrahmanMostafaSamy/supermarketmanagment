@@ -25,7 +25,8 @@ class Cart:
 
     def addProduct(self, prod: Product, quantity: int = 1):
         if prod.id in self.items.keys():
-            self.items[prod.id]['quantity'] += 1
+            # increase by the requested quantity (not just 1)
+            self.items[prod.id]['quantity'] += quantity
 
         else:
             self.items[prod.id] = {'obj': prod, "quantity": quantity, "itemtotal": 0}
@@ -35,7 +36,8 @@ class Cart:
     def removeProduct(self, prod: Product, quantity: int = 1):
 
         if prod.id in self.items.keys():
-            self.items[prod.id]['quantity'] -= 1
+            # decrease by the requested quantity
+            self.items[prod.id]['quantity'] -= quantity
 
             if self.items[prod.id]['quantity'] <= 0:
                 self.items.pop(prod.id)
@@ -50,6 +52,10 @@ class Cart:
 
             idata["itemtotal"] = itemtotal
             carttotal += itemtotal
+
+        # store the computed total on the cart
+        self.total = carttotal
+        return self.total
     
     def __is_Serial_available(self) -> bool:
         
