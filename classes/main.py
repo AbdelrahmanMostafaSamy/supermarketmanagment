@@ -254,7 +254,8 @@ class Cart:
 
             for line in msgs:
                 receipt.write(line + "\n")
-        
+
+            receipt.close()
 
         #save history to json
         with open("classes/data.json", "r+") as fp:
