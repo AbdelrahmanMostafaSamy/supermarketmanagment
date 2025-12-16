@@ -1,7 +1,7 @@
-from classes.main import LISTOFPRODUCTS
-from classes.main import Cart
+# from classes.main import LISTOFPRODUCTS
+# from classes.main import Cart
 
-cart = Cart()
+# cart = Cart()
 
 # for prod in LISTOFPRODUCTS:
 #     print(prod.id)
