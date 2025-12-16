@@ -1,5 +1,9 @@
 from random import randint
 from datetime import datetime
+import json
+import os
+
+#os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
 class Product:
     def __init__(self, prod_id: int, prod_name: str, prod_price: int, prod_desc: str)-> None:
@@ -8,6 +12,12 @@ class Product:
         self.price  = prod_price
         self.desc   = prod_desc
 
+    def getJson(self):
+        return {'id': self.id, 'name': self.name, "price": self.price, "desc": self.desc}
+    
+    def loadJson(self, data):
+        return Product(data.get('id'), data.get('name'), data.get('price'), data.get('desc'))
+    
 
 class Stock:
     def __init__(self):
@@ -56,7 +66,7 @@ class Stock:
             }
         }
 
-    def addProductToStock(self, product: Product = None, quantity: int = 0) -> bool:
+    def addProductToStock(self, product: Product, quantity: int = 0) -> bool:
         """
             Docstring for addProductToStock
             
@@ -68,10 +78,6 @@ class Stock:
             :return: True if the process has finished successfully. 
             :rtype: bool
         """
-
-        # If the object doesn't exists.
-        if Product == None:
-            return False
 
         # add the product.
         self.products[product.id] = {
@@ -133,7 +139,7 @@ class Stock:
             # False if the process has finished with failed.
             return False
 
-    def get_quantity(self, id_of_product: int) -> int:
+    def getQuantity(self, id_of_product: int) -> int:
         """
         Docstring for get_quantity
         
@@ -151,7 +157,7 @@ class Stock:
             # if I don't it return -1.
             return -1
         
-    def set_quantity(self, id_of_product: int, new_quantity: int) -> bool:
+    def setQuantity(self, id_of_product: int, new_quantity: int) -> bool:
         """
         Docstring for set_quantity
         
@@ -172,6 +178,7 @@ class Stock:
             # if I don't have it return false.
             return False
         
+
 class Cart:
     def __init__(self):
     #     id : {
@@ -187,7 +194,6 @@ class Cart:
 
     def addProduct(self, prod: Product, quantity: int = 1):
         if prod.id in self.items.keys():
-            # increase by the requested quantity (not just 1)
             self.items[prod.id]['quantity'] += quantity
 
         else:
@@ -218,22 +224,19 @@ class Cart:
         self.total = cart_total
         return self.total
     
-    def __is_Serial_available(self) -> bool:
-        
+    def __is_Serial_available(self, serial_number) -> bool:
         """
-        
             Search in the json file that have all serial numbers
             if the serial is --> found in json file return --> False
             if not found return --> True 
 
         """
-        # self.serial_number
+        with open("classes/data.json", "r") as fp:
+            jdata = json.load(fp)
 
-        return True
-        ...
+        return serial_number not in jdata["history"].keys()
 
-
-    def saveReceipt(self) -> None:
+    def saveReceipt(self, serial_number, msgs) -> None:
         """
             Docstring for saveReceipt.
 
@@ -242,22 +245,35 @@ class Cart:
 
             This function is created to save the receipt.
         """
-        # get the data from the checkout.
-        data = self.checkout()
+
 
         # get date with another format
         date = datetime.now().strftime("%d %b %Y")
         
         # create a txt file that have a receipt.
-        with open(f"receipts/receipt_{self.serial_number}_{date}_.txt", 'w') as receipt:
-            
-            # Put the data into the file.
-            for line in data:
+        with open(f"receipts/receipt_{serial_number}_{date}_.txt", 'w') as receipt:
+
+            for line in msgs:
                 receipt.write(line + "\n")
+        
+        #save history to json
+        fp = open("classes/data.json", "r+")
+        jdata = json.load(fp)
 
-            # close the file.
-            receipt.close()
+        items = []
+        for i in self.items.values():
+            prod = i['obj'].getJson()
+            prod.update({'quantity': i['quantity'], 'item_total': i['item_total']})
 
+            items.append(prod)
+
+        jdata['history'][serial_number] = items
+
+        fp.seek(0)
+        json.dump(jdata, fp)
+        fp.truncate()
+        fp.close()
+            
 
     def checkout(self) -> list:
         """
@@ -269,28 +285,23 @@ class Cart:
         """
         # list to strore all Statement.
         msgs = []
-        
-        # total salary .
-        total_salary_of_receive = 0
 
         # generate random number to serial.
-        self.serial_number = randint(10000000, 99999999) 
+        serial_number = randint(10000000, 99999999) 
 
         # still generate numbers until find a new serial number.
-        while not self.__is_Serial_available():
-            self.serial_number = randint(10000000, 99999999)
+        while self.__is_Serial_available(serial_number) == False:
+            serial_number = randint(10000000, 99999999)
 
-        # get the date.
+
         date = datetime.now().strftime("%A, %d-%B-%Y")
-        
-        # get the time.
         time = datetime.now().strftime("%I:%M:%S %p")
 
         # add separator. 
         msgs.append(f"-" * 60)
 
         # append the basic information about the receipt.
-        msgs.append(f"Super Market Receipt\nSerial Number: {self.serial_number}\nDate: {date}\nTime: {time}")
+        msgs.append(f"Super Market Receipt\nSerial Number: {serial_number}\nDate: {date}\nTime: {time}")
         
         # add separator. 
         msgs.append(f"-" * 60)
@@ -304,39 +315,37 @@ class Cart:
             name = self.items[id]["obj"].name
             price = self.items[id]["obj"].price
             quantity = self.items[id]["quantity"]
-            total_salary = (self.items[id]["quantity"]) * (self.items[id]["obj"].price)
+            itemtotal = self.items[id]['item_total']
             desc = self.items[id]["obj"].desc
-
-            # sum the total of every item.
-            total_salary_of_receive += total_salary
             
             # append every row in the receipt.
-            msgs.append(f"{name:<8}{str(price)+"$":<6}{quantity:<10}{total_salary:<10}{desc:<20}")
+            msgs.append(f"{name:<8}{str(price)+"$":<6}{quantity:<10}{itemtotal:<10}{desc:<20}")
         
-        # add separator.
         msgs.append(f"-" * 60)
         
-        # add the final total of receipt.
-        msgs.append("{:<24}{}".format("Final Total", total_salary_of_receive))
+        msgs.append("{:<24}{}".format("Final Total", self.total))
         
-        # return the data.
+        #save reciept and add to history
+        self.saveReceipt(serial_number, msgs)
+
         return msgs 
 
 
-# LISTOFPRODUCTS = [
-#     Product(101, "Milk", 300, "1L of milk."),
-#     Product(102, "Bread", 250, "White bread loaf."),
-#     Product(103, "Eggs", 450, "12 eggs."),
-#     Product(104, "Butter", 500, "Butter stick."),
-#     Product(106, "Soap", 199, "Hand soap.")
-# ]
+LISTOFPRODUCTS = [
+    Product(101, "Milk", 300, "1L of milk."),
+    Product(102, "Bread", 250, "White bread loaf."),
+    Product(103, "Eggs", 450, "12 eggs."),
+    Product(104, "Butter", 500, "Butter stick."),
+    Product(106, "Soap", 199, "Hand soap.")
+]
 
-
-# my_cart = Cart()
-# my_cart.addProduct(LISTOFPRODUCTS[0], 100)
-# my_cart.addProduct(LISTOFPRODUCTS[2], 150)
-# my_cart.addProduct(LISTOFPRODUCTS[3], 300)
-# my_cart.addProduct(LISTOFPRODUCTS[1], 200)
+my_cart = Cart()
+my_cart.addProduct(LISTOFPRODUCTS[0], 100)
+my_cart.addProduct(LISTOFPRODUCTS[2], 150)
+my_cart.addProduct(LISTOFPRODUCTS[3], 300)
+my_cart.addProduct(LISTOFPRODUCTS[1], 200)
+print(my_cart.items)
+my_cart.checkout()
 
 # my_cart.saveReceipt()
 
