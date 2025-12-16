@@ -1,0 +1,13 @@
+------------------------------------------------------------
+Super Market Receipt
+Serial Number: 29293196
+Date: Tuesday, 16-December-2025
+Time: 10:31:04 PM
+------------------------------------------------------------
+Name    Price Quantity  Total     Desc                
+Milk    300$  100       30000     1L of milk.         
+Eggs    450$  150       67500     12 eggs.            
+Butter  500$  300       150000    Butter stick.       
+Bread   250$  200       50000     White bread loaf.   
+------------------------------------------------------------
+Final Total             297500

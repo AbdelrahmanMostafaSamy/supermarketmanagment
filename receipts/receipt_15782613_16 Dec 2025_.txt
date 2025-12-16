@@ -1,0 +1,11 @@
+------------------------------------------------------------
+Super Market Receipt
+Serial Number: 15782613
+Date: Tuesday, 16-December-2025
+Time: 02:51:08 PM
+------------------------------------------------------------
+Name    Price Quantity  Total     Desc                
+Milk    300$  10        3000      1L of milk.         
+Bread   250$  8         2000      White bread loaf.   
+------------------------------------------------------------
+Final Total             5000
