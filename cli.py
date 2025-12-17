@@ -34,7 +34,7 @@ def add_products():
 
     quantity = int(input("Enter product quantity:"))
 
-    newProduct = Product(id, name, desc, price)
+    newProduct = Product(id, name, price, desc)
 
     stock.addProductToStock(newProduct, quantity)
     print("Product added successfully")
@@ -45,11 +45,8 @@ def display_products():
     print("__________PRODUCTS__________")
 
     for key, value in stock.products.items():
-        for key, value in value.items():
-            print(f"{key}: {value.name} <--> {value.price}  <--> {value.desc}")
-            break
-
-
+        print(f"{key} -->  {value["obj"].name} <-> {value["obj"].price} <-> {value["obj"].desc} <-> {value["Quantity"]}")
+        
 # Function Add To Cart
 def add_to_cart():
     user_input = input("Enter product id (or 0 to stop): ")
