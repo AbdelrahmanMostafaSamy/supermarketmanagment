@@ -188,6 +188,7 @@ class Cart:
     #     }
         self.items = {}
         self.total = 0
+        self.stockobj = Stock()
 
     def getCart(self):
         return self.items, self.total
@@ -280,8 +281,9 @@ class Cart:
             Docstring for checkout
             
             :param self: instance attribute
-            :return: list of all statement in the receipt 
-            :return type: list
+            :return: True for success, False for quantity error 
+            list of all statement in the receipt 
+            :return type: bool, list
         """
         # list to strore all Statement.
         msgs = []
@@ -317,18 +319,31 @@ class Cart:
             quantity = self.items[id]["quantity"]
             itemtotal = self.items[id]['item_total']
             desc = self.items[id]["obj"].desc
+
+            #check if quantity is in stock
+            if quantity <= self.stockobj.getQuantity(id):
+                #update stock
+                newquantity = self.stockobj.getQuantity(id) - quantity
+                self.stockobj.setQuantity(id, newquantity)
+            else:
+                return False, [f"Error: Not enough quantity for product ID {id} - {name} in stock."]
             
             # append every row in the receipt.
             msgs.append(f"{name:<8}{str(price)+"$":<6}{quantity:<10}{itemtotal:<10}{desc:<20}")
         
         msgs.append(f"-" * 60)
-        
         msgs.append("{:<24}{}".format("Final Total", self.total))
         
         #save reciept and add to history
         self.saveReceipt(serial_number, msgs)
 
-        return msgs 
+        #reset cart
+        self.items = {}
+        self.total = 0
+
+
+        #Success
+        return True, msgs 
 
 
 LISTOFPRODUCTS = [
