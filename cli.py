@@ -22,7 +22,7 @@ cart = []
 def add_products():
     print("__________A D D  IN  S T O R E__________")    
     id = int(input("Enter product id: "))
-    if id in products:
+    if id in stock.products.keys():
         print("product id already exists")
         return
 
@@ -48,33 +48,61 @@ def display_products():
         print(f"{key} -->  {value["obj"].name} <-> {value["obj"].price} <-> {value["obj"].desc} <-> {value["Quantity"]}")
         
 # Function Add To Cart
+# def add_to_cart():
+#     user_input = input("Enter product id (or 0 to stop): ")
+#     if not user_input.isdigit():
+#         print("Invalid id")
+#         return
+#     id = int(user_input)
+
+#     if id == 0:
+#         return
+
+#     count_input = input("Enter quantity: ")
+#     if not count_input.isdigit():
+#         print("Invalid quantity")
+#         return
+#     count = int(count_input)
+
+#     if id in products:
+#         total_price_product = products[id][1] * count
+#         cart.append({
+#             "name": products[id][0],
+#             "price": products[id][1],
+#             "quantity": count,
+#             "total": total_price_product
+#         })
+#         print("Product added to cart")
+#     else:
+#         print("Product not found")
+
+
 def add_to_cart():
-    user_input = input("Enter product id (or 0 to stop): ")
-    if not user_input.isdigit():
-        print("Invalid id")
-        return
-    id = int(user_input)
+    while True:
+        user_input = input("Enter product id (or 0 to stop): ")
+        if not user_input.isdigit():
+            print("Invalid id")
+            continue
 
-    if id == 0:
-        return
+        prod_id = int(user_input)
 
-    count_input = input("Enter quantity: ")
-    if not count_input.isdigit():
-        print("Invalid quantity")
-        return
-    count = int(count_input)
+        if prod_id == 0:
+            print("Stopping add to cart")
+            break
+        if prod_id not in stock.products:
+            print("Product not found")
+            continue
+        
+        qty_input = input("Enter quantity: ")
+        if not qty_input.isdigit() or int(qty_input) <= 0:
+            print("Invalid quantity")
+            continue
+        qty_input = int(qty_input)
 
-    if id in products:
-        total_price_product = products[id][1] * count
-        cart.append({
-            "name": products[id][0],
-            "price": products[id][1],
-            "quantity": count,
-            "total": total_price_product
-        })
-        print("Product added to cart")
-    else:
-        print("Product not found")
+        product = stock.products[prod_id]["obj"]
+        cart.addProduct(product, qty_input)
+
+        print(f"Added {qty_input} of {product.name} to cart.")
 
 # Function Delete From Store
 def delete_from_store():
@@ -92,19 +120,12 @@ def delete_from_store():
 
 # Main loop
 while True:
-    add_products()
     display_products()
     add_to_cart()
+    
 
     checkout = input("Do you want to checkout? (y/n): ")
     if checkout.lower() == "y":
         break
 
-
-total = sum(item["total"] for item in cart)
-
 print("__________C A R T__________")
-for item in cart:
-    print(f"{item['name']} x{item['quantity']} = LE {item['total']}")
-
-print("Total amount: LE", total)
