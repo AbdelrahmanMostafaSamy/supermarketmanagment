@@ -1,1 +1,412 @@
+<<<<<<< HEAD
 {"stock": {"106": {"obj": {"id": 106, "name": "Soap", "price": 199, "desc": "Hand soap."}, "Quantity": 30}, "107": {"obj": {"id": 107, "name": "Butter", "price": 199, "desc": "B."}, "Quantity": 30}}, "history": {"12966289": [{"id": 101, "name": "Milk", "price": 300, "desc": "1L of milk.", "quantity": 100, "item_total": 30000}, {"id": 103, "name": "Eggs", "price": 450, "desc": "12 eggs.", "quantity": 150, "item_total": 67500}, {"id": 104, "name": "Butter", "price": 500, "desc": "Butter stick.", "quantity": 300, "item_total": 150000}, {"id": 102, "name": "Bread", "price": 250, "desc": "White bread loaf.", "quantity": 200, "item_total": 50000}], "47868280": [{"id": 101, "name": "Milk", "price": 300, "desc": "1L of milk.", "quantity": 100, "item_total": 30000}, {"id": 103, "name": "Eggs", "price": 450, "desc": "12 eggs.", "quantity": 150, "item_total": 67500}, {"id": 104, "name": "Butter", "price": 500, "desc": "Butter stick.", "quantity": 300, "item_total": 150000}, {"id": 102, "name": "Bread", "price": 250, "desc": "White bread loaf.", "quantity": 200, "item_total": 50000}], "72186416": [{"id": 101, "name": "Milk", "price": 300, "desc": "1L of milk.", "quantity": 100, "item_total": 30000}, {"id": 103, "name": "Eggs", "price": 450, "desc": "12 eggs.", "quantity": 150, "item_total": 67500}, {"id": 104, "name": "Butter", "price": 500, "desc": "Butter stick.", "quantity": 300, "item_total": 150000}, {"id": 102, "name": "Bread", "price": 250, "desc": "White bread loaf.", "quantity": 200, "item_total": 50000}], "40172521": [{"id": 101, "name": "Milk", "price": 300, "desc": "1L of milk.", "quantity": 100, "item_total": 30000}, {"id": 103, "name": "Eggs", "price": 450, "desc": "12 eggs.", "quantity": 150, "item_total": 67500}, {"id": 104, "name": "Butter", "price": 500, "desc": "Butter stick.", "quantity": 300, "item_total": 150000}, {"id": 102, "name": "Bread", "price": 250, "desc": "White bread loaf.", "quantity": 200, "item_total": 50000}], "15872408": [{"id": 101, "name": "Milk", "price": 300, "desc": "1L of milk.", "quantity": 100, "item_total": 30000}, {"id": 103, "name": "Eggs", "price": 450, "desc": "12 eggs.", "quantity": 150, "item_total": 67500}, {"id": 104, "name": "Butter", "price": 500, "desc": "Butter stick.", "quantity": 300, "item_total": 150000}, {"id": 102, "name": "Bread", "price": 250, "desc": "White bread loaf.", "quantity": 200, "item_total": 50000}], "24532761": [{"id": 101, "name": "Milk", "price": 300, "desc": "1L of milk.", "quantity": 100, "item_total": 30000}, {"id": 103, "name": "Eggs", "price": 450, "desc": "12 eggs.", "quantity": 150, "item_total": 67500}, {"id": 104, "name": "Butter", "price": 500, "desc": "Butter stick.", "quantity": 300, "item_total": 150000}, {"id": 102, "name": "Bread", "price": 250, "desc": "White bread loaf.", "quantity": 200, "item_total": 50000}], "97963794": [{"id": 101, "name": "Milk", "price": 300, "desc": "1L of milk.", "quantity": 100, "item_total": 30000}, {"id": 103, "name": "Eggs", "price": 450, "desc": "12 eggs.", "quantity": 150, "item_total": 67500}, {"id": 104, "name": "Butter", "price": 500, "desc": "Butter stick.", "quantity": 300, "item_total": 150000}, {"id": 102, "name": "Bread", "price": 250, "desc": "White bread loaf.", "quantity": 200, "item_total": 50000}], "64111865": [{"id": 101, "name": "Milk", "price": 300, "desc": "1L of milk.", "quantity": 100, "item_total": 30000}, {"id": 103, "name": "Eggs", "price": 450, "desc": "12 eggs.", "quantity": 150, "item_total": 67500}, {"id": 104, "name": "Butter", "price": 500, "desc": "Butter stick.", "quantity": 300, "item_total": 150000}, {"id": 102, "name": "Bread", "price": 250, "desc": "White bread loaf.", "quantity": 200, "item_total": 50000}], "43199949": [{"id": 101, "name": "Milk", "price": 300, "desc": "1L of milk.", "quantity": 100, "item_total": 30000}, {"id": 103, "name": "Eggs", "price": 450, "desc": "12 eggs.", "quantity": 150, "item_total": 67500}, {"id": 104, "name": "Butter", "price": 500, "desc": "Butter stick.", "quantity": 300, "item_total": 150000}, {"id": 102, "name": "Bread", "price": 250, "desc": "White bread loaf.", "quantity": 200, "item_total": 50000}], "91448189": [{"id": 101, "name": "Milk", "price": 300, "desc": "1L of milk.", "quantity": 100, "item_total": 30000}, {"id": 103, "name": "Eggs", "price": 450, "desc": "12 eggs.", "quantity": 150, "item_total": 67500}, {"id": 104, "name": "Butter", "price": 500, "desc": "Butter stick.", "quantity": 300, "item_total": 150000}, {"id": 102, "name": "Bread", "price": 250, "desc": "White bread loaf.", "quantity": 200, "item_total": 50000}], "92955406": [{"id": 101, "name": "Milk", "price": 300, "desc": "1L of milk.", "quantity": 100, "item_total": 30000}, {"id": 103, "name": "Eggs", "price": 450, "desc": "12 eggs.", "quantity": 150, "item_total": 67500}, {"id": 104, "name": "Butter", "price": 500, "desc": "Butter stick.", "quantity": 300, "item_total": 150000}, {"id": 102, "name": "Bread", "price": 250, "desc": "White bread loaf.", "quantity": 200, "item_total": 50000}], "20884095": [{"id": 104, "name": "Butter", "price": 500, "desc": "Butter stick.", "quantity": 9, "item_total": 4500}]}}
+=======
+{
+    "stock": {
+        "106": {
+            "obj": {
+                "id": 106,
+                "name": "Soap",
+                "price": 199,
+                "desc": "Hand soap."
+            },
+            "Quantity": 30
+        },
+        "107": {
+            "obj": {
+                "id": 107,
+                "name": "Butter",
+                "price": 199,
+                "desc": "B."
+            },
+            "Quantity": 30
+        }
+    },
+    "history": {
+        "12966289": [
+            {
+                "id": 101,
+                "name": "Milk",
+                "price": 300,
+                "desc": "1L of milk.",
+                "quantity": 100,
+                "item_total": 30000
+            },
+            {
+                "id": 103,
+                "name": "Eggs",
+                "price": 450,
+                "desc": "12 eggs.",
+                "quantity": 150,
+                "item_total": 67500
+            },
+            {
+                "id": 104,
+                "name": "Butter",
+                "price": 500,
+                "desc": "Butter stick.",
+                "quantity": 300,
+                "item_total": 150000
+            },
+            {
+                "id": 102,
+                "name": "Bread",
+                "price": 250,
+                "desc": "White bread loaf.",
+                "quantity": 200,
+                "item_total": 50000
+            }
+        ],
+        "47868280": [
+            {
+                "id": 101,
+                "name": "Milk",
+                "price": 300,
+                "desc": "1L of milk.",
+                "quantity": 100,
+                "item_total": 30000
+            },
+            {
+                "id": 103,
+                "name": "Eggs",
+                "price": 450,
+                "desc": "12 eggs.",
+                "quantity": 150,
+                "item_total": 67500
+            },
+            {
+                "id": 104,
+                "name": "Butter",
+                "price": 500,
+                "desc": "Butter stick.",
+                "quantity": 300,
+                "item_total": 150000
+            },
+            {
+                "id": 102,
+                "name": "Bread",
+                "price": 250,
+                "desc": "White bread loaf.",
+                "quantity": 200,
+                "item_total": 50000
+            }
+        ],
+        "72186416": [
+            {
+                "id": 101,
+                "name": "Milk",
+                "price": 300,
+                "desc": "1L of milk.",
+                "quantity": 100,
+                "item_total": 30000
+            },
+            {
+                "id": 103,
+                "name": "Eggs",
+                "price": 450,
+                "desc": "12 eggs.",
+                "quantity": 150,
+                "item_total": 67500
+            },
+            {
+                "id": 104,
+                "name": "Butter",
+                "price": 500,
+                "desc": "Butter stick.",
+                "quantity": 300,
+                "item_total": 150000
+            },
+            {
+                "id": 102,
+                "name": "Bread",
+                "price": 250,
+                "desc": "White bread loaf.",
+                "quantity": 200,
+                "item_total": 50000
+            }
+        ],
+        "40172521": [
+            {
+                "id": 101,
+                "name": "Milk",
+                "price": 300,
+                "desc": "1L of milk.",
+                "quantity": 100,
+                "item_total": 30000
+            },
+            {
+                "id": 103,
+                "name": "Eggs",
+                "price": 450,
+                "desc": "12 eggs.",
+                "quantity": 150,
+                "item_total": 67500
+            },
+            {
+                "id": 104,
+                "name": "Butter",
+                "price": 500,
+                "desc": "Butter stick.",
+                "quantity": 300,
+                "item_total": 150000
+            },
+            {
+                "id": 102,
+                "name": "Bread",
+                "price": 250,
+                "desc": "White bread loaf.",
+                "quantity": 200,
+                "item_total": 50000
+            }
+        ],
+        "15872408": [
+            {
+                "id": 101,
+                "name": "Milk",
+                "price": 300,
+                "desc": "1L of milk.",
+                "quantity": 100,
+                "item_total": 30000
+            },
+            {
+                "id": 103,
+                "name": "Eggs",
+                "price": 450,
+                "desc": "12 eggs.",
+                "quantity": 150,
+                "item_total": 67500
+            },
+            {
+                "id": 104,
+                "name": "Butter",
+                "price": 500,
+                "desc": "Butter stick.",
+                "quantity": 300,
+                "item_total": 150000
+            },
+            {
+                "id": 102,
+                "name": "Bread",
+                "price": 250,
+                "desc": "White bread loaf.",
+                "quantity": 200,
+                "item_total": 50000
+            }
+        ],
+        "24532761": [
+            {
+                "id": 101,
+                "name": "Milk",
+                "price": 300,
+                "desc": "1L of milk.",
+                "quantity": 100,
+                "item_total": 30000
+            },
+            {
+                "id": 103,
+                "name": "Eggs",
+                "price": 450,
+                "desc": "12 eggs.",
+                "quantity": 150,
+                "item_total": 67500
+            },
+            {
+                "id": 104,
+                "name": "Butter",
+                "price": 500,
+                "desc": "Butter stick.",
+                "quantity": 300,
+                "item_total": 150000
+            },
+            {
+                "id": 102,
+                "name": "Bread",
+                "price": 250,
+                "desc": "White bread loaf.",
+                "quantity": 200,
+                "item_total": 50000
+            }
+        ],
+        "97963794": [
+            {
+                "id": 101,
+                "name": "Milk",
+                "price": 300,
+                "desc": "1L of milk.",
+                "quantity": 100,
+                "item_total": 30000
+            },
+            {
+                "id": 103,
+                "name": "Eggs",
+                "price": 450,
+                "desc": "12 eggs.",
+                "quantity": 150,
+                "item_total": 67500
+            },
+            {
+                "id": 104,
+                "name": "Butter",
+                "price": 500,
+                "desc": "Butter stick.",
+                "quantity": 300,
+                "item_total": 150000
+            },
+            {
+                "id": 102,
+                "name": "Bread",
+                "price": 250,
+                "desc": "White bread loaf.",
+                "quantity": 200,
+                "item_total": 50000
+            }
+        ],
+        "64111865": [
+            {
+                "id": 101,
+                "name": "Milk",
+                "price": 300,
+                "desc": "1L of milk.",
+                "quantity": 100,
+                "item_total": 30000
+            },
+            {
+                "id": 103,
+                "name": "Eggs",
+                "price": 450,
+                "desc": "12 eggs.",
+                "quantity": 150,
+                "item_total": 67500
+            },
+            {
+                "id": 104,
+                "name": "Butter",
+                "price": 500,
+                "desc": "Butter stick.",
+                "quantity": 300,
+                "item_total": 150000
+            },
+            {
+                "id": 102,
+                "name": "Bread",
+                "price": 250,
+                "desc": "White bread loaf.",
+                "quantity": 200,
+                "item_total": 50000
+            }
+        ],
+        "43199949": [
+            {
+                "id": 101,
+                "name": "Milk",
+                "price": 300,
+                "desc": "1L of milk.",
+                "quantity": 100,
+                "item_total": 30000
+            },
+            {
+                "id": 103,
+                "name": "Eggs",
+                "price": 450,
+                "desc": "12 eggs.",
+                "quantity": 150,
+                "item_total": 67500
+            },
+            {
+                "id": 104,
+                "name": "Butter",
+                "price": 500,
+                "desc": "Butter stick.",
+                "quantity": 300,
+                "item_total": 150000
+            },
+            {
+                "id": 102,
+                "name": "Bread",
+                "price": 250,
+                "desc": "White bread loaf.",
+                "quantity": 200,
+                "item_total": 50000
+            }
+        ],
+        "91448189": [
+            {
+                "id": 101,
+                "name": "Milk",
+                "price": 300,
+                "desc": "1L of milk.",
+                "quantity": 100,
+                "item_total": 30000
+            },
+            {
+                "id": 103,
+                "name": "Eggs",
+                "price": 450,
+                "desc": "12 eggs.",
+                "quantity": 150,
+                "item_total": 67500
+            },
+            {
+                "id": 104,
+                "name": "Butter",
+                "price": 500,
+                "desc": "Butter stick.",
+                "quantity": 300,
+                "item_total": 150000
+            },
+            {
+                "id": 102,
+                "name": "Bread",
+                "price": 250,
+                "desc": "White bread loaf.",
+                "quantity": 200,
+                "item_total": 50000
+            }
+        ],
+        "92955406": [
+            {
+                "id": 101,
+                "name": "Milk",
+                "price": 300,
+                "desc": "1L of milk.",
+                "quantity": 100,
+                "item_total": 30000
+            },
+            {
+                "id": 103,
+                "name": "Eggs",
+                "price": 450,
+                "desc": "12 eggs.",
+                "quantity": 150,
+                "item_total": 67500
+            },
+            {
+                "id": 104,
+                "name": "Butter",
+                "price": 500,
+                "desc": "Butter stick.",
+                "quantity": 300,
+                "item_total": 150000
+            },
+            {
+                "id": 102,
+                "name": "Bread",
+                "price": 250,
+                "desc": "White bread loaf.",
+                "quantity": 200,
+                "item_total": 50000
+            }
+        ],
+        "20884095": [
+            {
+                "id": 104,
+                "name": "Butter",
+                "price": 500,
+                "desc": "Butter stick.",
+                "quantity": 9,
+                "item_total": 4500
+            }
+        ]
+    }
+}
+>>>>>>> 00bd6e2a8e5595609680025204555058ab1a04a0
