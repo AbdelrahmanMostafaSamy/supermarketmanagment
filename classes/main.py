@@ -238,10 +238,12 @@ class Cart:
             if not found return --> True 
 
         """
-        with open("classes/data.json", "r") as fp:
-            jdata = json.load(fp)
+        # with open("classes/data.json", "r") as fp:
+        #     jdata = json.load(fp)
 
-        return serial_number not in jdata["history"].keys()
+        json_data = self.stockobj.readJSONData()
+
+        return serial_number not in json_data["history"].keys()
 
     def saveReceipt(self, serial_number, msgs) -> None:
         """
@@ -253,7 +255,7 @@ class Cart:
             This function is created to save the receipt.
         """
 
-
+        print("I here")
         date = datetime.now().strftime("%d %b %Y")
         
         # create a txt file that have a receipt.
@@ -262,9 +264,7 @@ class Cart:
             for line in msgs:
                 receipt.write(line + "\n")
 
-            receipt.close()
-
-        #save history to json
+        # save history to json
         with open("classes/data.json", "r+") as fp:
             jdata = json.load(fp)
 
@@ -365,14 +365,14 @@ LISTOFPRODUCTS = [
 # my_cart.addProduct(LISTOFPRODUCTS[2], 150)
 # my_cart.addProduct(LISTOFPRODUCTS[3], 300)
 # my_cart.addProduct(LISTOFPRODUCTS[1], 200)
-# print(my_cart.items)
-# my_cart.checkout()
+
+# print(my_cart.checkout())
 
 # my_cart.saveReceipt()
 
-my_stock = Stock()
+# my_stock = Stock()
 # my_stock.addProductToStock(Product(107, "Butter", 199, "B."), 30)
-my_stock.loadDataFromJSONFile()
+# my_stock.loadDataFromJSONFile()
 
 # my_stock.deleteFromStock(1000)
 # my_stock.updateProduct(103, "Chipes", 350, "Lol")
