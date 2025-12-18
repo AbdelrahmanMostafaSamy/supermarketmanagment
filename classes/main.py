@@ -109,7 +109,7 @@ class Stock:
         # iterate on the stock dict to store it in the products dict.
         for key, value in products_in_json_data.items():
             products[int(key)] = {
-                "obj" : Product(value.get('id'), value.get('name'), value.get('price'), value.get('desc')),
+                "obj" : Product(value["obj"]["id"], value["obj"]["name"], value["obj"]["price"], value["obj"]["desc"]),
                 "Quantity" : products_in_json_data[key]["Quantity"]
             }
 
@@ -371,6 +371,7 @@ LISTOFPRODUCTS = [
 # my_cart.saveReceipt()
 
 # my_stock = Stock()
+# print(my_stock.products[106]['obj'].name)
 # my_stock.addProductToStock(Product(107, "Butter", 199, "B."), 30)
 # my_stock.loadDataFromJSONFile()
 
