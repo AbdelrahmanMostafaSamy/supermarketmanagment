@@ -91,6 +91,7 @@ class Stock:
         # write the data.
         self.writeJSONData(json_data)
 
+        # the products from the stock.
         self.products: dict = self.loadDataFromJSONFile()
     
     def loadDataFromJSONFile(self) -> dict:
@@ -257,7 +258,6 @@ class Cart:
             This function is created to save the receipt.
         """
 
-        print("I here")
         date = datetime.now().strftime("%d %b %Y")
         
         # create a txt file that have a receipt.
