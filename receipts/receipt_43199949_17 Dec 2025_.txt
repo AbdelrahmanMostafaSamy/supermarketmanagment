@@ -1,8 +1,8 @@
 ------------------------------------------------------------
 Super Market Receipt
-Serial Number: 93149156
-Date: Monday, 15-December-2025
-Time: 11:49:27 PM
+Serial Number: 43199949
+Date: Wednesday, 17-December-2025
+Time: 08:09:59 PM
 ------------------------------------------------------------
 Name    Price Quantity  Total     Desc                
 Milk    300$  100       30000     1L of milk.         

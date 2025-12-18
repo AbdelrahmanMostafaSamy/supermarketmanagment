@@ -1,7 +1,10 @@
 # from classes.main import LISTOFPRODUCTS
-# from classes.main import Cart
+from classes.main import Cart
+from classes.main import Stock
+from classes.main import Product
 
-# cart = Cart()
+cart = Cart()
+stock = Stock()
 
 # for prod in LISTOFPRODUCTS:
 #     print(prod.id)
@@ -11,30 +14,39 @@
 #     print()
 
 
-
 products = {}
 cart = []
+
 
 # Functions Add product in Store
 def add_products():
     print("__________A D D  IN  S T O R E__________")    
     id = int(input("Enter product id: "))
+    if id in products:
+        print("product id already exists")
+        return
 
     name = input("Enter product name: ")
 
     price = int(input("Enter product price: "))
 
-    products[id] = [name, price]
+    desc = input("Enter product description:")
+
+    quantity = int(input("Enter product quantity:"))
+
+    newProduct = Product(id, name, price, desc)
+
+    stock.addProductToStock(newProduct, quantity)
     print("Product added successfully")
 
 
 # Function Display Products
 def display_products():
     print("__________PRODUCTS__________")
-    for id, info in products.items():
-        print(f"ID: {id}, Name: {info[0]}, Price: LE {info[1]}")
 
-
+    for key, value in stock.products.items():
+        print(f"{key} -->  {value["obj"].name} <-> {value["obj"].price} <-> {value["obj"].desc} <-> {value["Quantity"]}")
+        
 # Function Add To Cart
 def add_to_cart():
     user_input = input("Enter product id (or 0 to stop): ")
@@ -63,6 +75,19 @@ def add_to_cart():
         print("Product added to cart")
     else:
         print("Product not found")
+
+# Function Delete From Store
+def delete_from_store():
+    id = int(input("Enter product id to delete:"))
+    if id in products:
+        del products[id]
+        print("Product deleted successfully")
+    else:
+        print("Product not found")
+
+
+# Function Delete From Cart
+
 
 
 # Main loop
