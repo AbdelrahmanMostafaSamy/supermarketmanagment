@@ -49,6 +49,7 @@ def display_products():
 
 # Function Add to Cart
 def add_to_cart():
+    print("\n__________A D D  T O  C A R T__________")
     user_input = input("Enter product id (or 0 to stop): ")
     if not user_input.isdigit():
         print("Invalid id")
@@ -78,6 +79,7 @@ def add_to_cart():
 
 # Function Delete From Cart
 def delete_from_cart():
+    print("\n__________DELETE FROM CART__________")    
     id = int(input("Enter product id to delete from cart: "))
     if id in cart.items:
         del cart.items[id]
