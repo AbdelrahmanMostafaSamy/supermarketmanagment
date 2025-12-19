@@ -6,14 +6,7 @@ from classes.main import Product
 cart = Cart()
 stock = Stock()
 
-# for prod in LISTOFPRODUCTS:
-#     print(prod.id)
-#     print(prod.name)
-#     print(prod.desc)
-#     print(prod.price)
-#     print()
-
-
+#______________Add Products in Stock______________
 # Functions Add product in Store
 def add_products():
     print("__________A D D  IN  S T O R E__________")
@@ -35,7 +28,7 @@ def add_products():
     stock.addProductToStock(newProduct, quantity)
     print("Product added successfully")
 
-
+#______________Display Products______________
 # Function Display Products
 def display_products():
     print("__________PRODUCTS__________")
@@ -47,6 +40,7 @@ def display_products():
             f"{value['Quantity']}"
         )
 
+#______________Add to Cart_____________
 # Function Add to Cart
 def add_to_cart():
     print("\n__________A D D  T O  C A R T__________")
@@ -77,6 +71,7 @@ def add_to_cart():
     print(f"Added {quantity} of {product.name} to cart.")
     return True
 
+#______________Delete From Cart______________
 # Function Delete From Cart
 def delete_from_cart():
     print("\n__________DELETE FROM CART__________")    
@@ -88,8 +83,32 @@ def delete_from_cart():
     else:
         print("Product not found in cart")
 
+viewcart = {}
+# ____________ View Cart ____________
+def view_cart():
+    print("\n__________C A R T  I T E M S__________")
+    if not cart.items:
+        print("Cart is empty")
+        return
+    
+    for pid, item in cart.items.items():
+        product = item["obj"]
+        quantity = item["quantity"]
+        item_total = item["item_total"]
+
+        print(
+            f"{pid} --> {product.name} | "
+            f"{product.price}$ | "
+            f"Quantity: {quantity} | "
+            f"Subtotal: {item_total}"
+        )
+
+    print("-" * 40)
+    print(f"Total Amount: {cart.total}")
 
 
+#______________Main Menu______________
+# Main Menu
 def prints():
     while True:
         print("\n__________M A I N   M E N U__________")
@@ -98,7 +117,8 @@ def prints():
         print("3. Add product to cart")
         print("4. Delete product from cart")
         print("5. Checkout")
-        print("6. Exit")
+        print("6. View Cart")
+        print("7. Exit")
         choice = input("Enter your choice: ")
         if choice == "1":
             add_products()
@@ -111,8 +131,12 @@ def prints():
         elif choice == "4":
             delete_from_cart()
         elif choice == "5":
-            cart.checkout()
+            if not cart.items:
+                print("Cart is empty, cannot checkout.")
+                cart.checkout()
         elif choice == "6":
+            view_cart()
+        elif choice == "7":
             print("Exiting...")
             break
         else:
