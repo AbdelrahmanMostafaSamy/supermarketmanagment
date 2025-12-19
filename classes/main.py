@@ -337,7 +337,7 @@ class Cart:
                 newquantity = stock_quantity - quantity
                 self.stockobj.setQuantity(id, newquantity)
             else:
-                return False, [f"Error: Not enough quantity for product ID {id} - {name} in stock."]
+                return False, f"عفواً، المخزون لا يكفي لـ {name}"
             
             # append every row in the receipt.
             msgs.append(f"{name:<8}{str(price)+"$":<6}{quantity:<10}{itemtotal:<10}{desc:<20}")
