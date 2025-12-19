@@ -1,11 +1,8 @@
 
+import arabic_reshaper
 
+text = "عمر"
 
+reshaped_text = arabic_reshaper.reshape(text)
 
-
-
-
-
-
-if __name__ == "__main__":
-    pass
+print(reshaped_text[::-1])

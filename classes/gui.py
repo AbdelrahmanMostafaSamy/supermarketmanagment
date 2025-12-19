@@ -1,6 +1,6 @@
 import customtkinter as ctk
 from CTkMessagebox import CTkMessagebox
-import classes.main as m
+import main as m
 import winsound
 
 class SuperMarketGUI(ctk.CTk):
