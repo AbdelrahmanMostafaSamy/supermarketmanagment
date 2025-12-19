@@ -1,0 +1,12 @@
+------------------------------------------------------------
+Super Market Receipt
+Serial Number: 67093875
+Date: Friday, 19-December-2025
+Time: 11:19:00 AM
+------------------------------------------------------------
+Name    Price Quantity  Total     Desc                
+cola    1$    5         5         soda                
+milk    50$   7         350       noor                
+chibsi  10$   4         40        20                  
+------------------------------------------------------------
+Final Total             395
