@@ -124,10 +124,13 @@ class SuperMarketGUI(ctk.CTk):
 
     def process_checkout(self):
         success, msg = self.cart_logic.checkout()
-        if success:
+        if not self.cart_rows:
+            CTkMessagebox(title="خطأ", message="عفوا, السلة فارغة" , icon="cancel",font=("Arial",22,"bold"))
+            winsound.MessageBeep(winsound.MB_ICONHAND)
+        elif success:
             for child in self.cart_items_container.winfo_children():
                 child.destroy()
-            self.cart_rows = {}
+            self.cart_rows= {}
             self.update_total_display()
             CTkMessagebox(title="تحقق", message= "تم اصدار الفاتورة بنجاح", icon="check" , font=("Arial",22,"bold"))
             winsound.MessageBeep(winsound.MB_OK)
